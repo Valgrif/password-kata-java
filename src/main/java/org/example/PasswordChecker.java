@@ -2,24 +2,23 @@ package org.example;
 
 import java.util.List;
 
-public class PasswordValidator {
-    public static boolean validate(String password) {
+public class PasswordChecker {
+    public static void check(String password) {
         if (password.length() < 8) {
-            return false;
+            throw new IllegalArgumentException("Password must have at least 8 characters length");
         }
         if (notContainLowerChar(password)) {
-            return false;
+            throw new IllegalArgumentException("Password must contain at least a lower character");
         }
         if (notContainUpperChar(password)) {
-            return false;
+            throw new IllegalArgumentException("Password must contain at least an upper character");
         }
         if (notContainNumber(password)) {
-            return false;
+            throw new IllegalArgumentException("Password must contain at least a number");
         }
         if (notContainSpecialChar(password)) {
-            return false;
+            throw new IllegalArgumentException("Password must contain at least a special character");
         }
-        return true;
     }
 
     private static boolean notContainSpecialChar(String password) {
