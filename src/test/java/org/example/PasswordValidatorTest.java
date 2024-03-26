@@ -8,8 +8,8 @@ class PasswordValidatorTest {
     Password correcto: será aquel que
         tenga minimo 8 caracteres (/)
         Contenga al menos una minuscula (/)
-        Contenga al menos una mayuscula
-        Contenga al menos un número
+        Contenga al menos una mayuscula (/)
+        Contenga al menos un número (/)
         Contegna al menos un caracter especial: ?_!-*()[]{}+
      */
     @Test
@@ -36,6 +36,16 @@ class PasswordValidatorTest {
     void should_validate_a_password_contains_at_least_one_upper_character(){
         //given
         String password = "algoalgo";
+        //when
+        boolean actual = PasswordValidator.validate(password);
+        //then
+        Assertions.assertThat(actual).isFalse();
+    }
+
+    @Test
+    void should_validate_a_password_contains_at_least_one_number(){
+        //given
+        String password = "algoalgO";
         //when
         boolean actual = PasswordValidator.validate(password);
         //then

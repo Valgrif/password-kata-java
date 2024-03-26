@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.stream.Stream;
+
 public class PasswordValidator {
     public static boolean validate(String password) {
         if (password.length() < 8) {
@@ -11,8 +13,15 @@ public class PasswordValidator {
         if (notContainUpperChar(password)) {
             return false;
         }
+        if (notContainNumber(password)) {
+            return false;
+        }
         throw new RuntimeException("Not implemented yet");
 
+    }
+
+    private static boolean notContainNumber(String password) {
+        return password.chars().noneMatch(Character::isDigit);
     }
 
     private static boolean notContainUpperChar(String password) {
