@@ -1,6 +1,6 @@
 package org.example;
 
-import java.util.stream.Stream;
+import java.util.List;
 
 public class PasswordValidator {
     public static boolean validate(String password) {
@@ -16,8 +16,16 @@ public class PasswordValidator {
         if (notContainNumber(password)) {
             return false;
         }
+        if (notContainSpecialChar(password)) {
+            return false;
+        }
         throw new RuntimeException("Not implemented yet");
 
+    }
+
+    private static boolean notContainSpecialChar(String password) {
+        List<Character> specialChars = List.of('?', '_', '!', '-', '*', '(', ')', '[', ']', '{', '}', '+');
+        return password.chars().mapToObj(c -> (char) c).noneMatch(specialChars::contains);
     }
 
     private static boolean notContainNumber(String password) {
