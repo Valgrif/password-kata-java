@@ -15,7 +15,7 @@ class PasswordValidatorTest {
     @Test
     void should_validate_a_password_contains_at_least_eight_characters() {
         //given
-        String password = "algo";
+        String password = "Alga!g0";
         //when
         boolean actual = PasswordValidator.validate(password);
         //then
@@ -60,5 +60,14 @@ class PasswordValidatorTest {
         boolean actual = PasswordValidator.validate(password);
         //then
         Assertions.assertThat(actual).isFalse();
+    }
+
+    @Test
+    void should_validate_a_correct_password() {
+        String password = "Algoa!g0";
+
+        boolean actual = PasswordValidator.validate(password);
+
+        Assertions.assertThat(actual).isTrue();
     }
 }

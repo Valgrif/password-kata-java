@@ -19,8 +19,7 @@ public class PasswordValidator {
         if (notContainSpecialChar(password)) {
             return false;
         }
-        throw new RuntimeException("Not implemented yet");
-
+        return true;
     }
 
     private static boolean notContainSpecialChar(String password) {
