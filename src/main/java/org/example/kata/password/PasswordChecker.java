@@ -1,4 +1,4 @@
-package org.example;
+package org.example.kata.password;
 
 import java.util.List;
 

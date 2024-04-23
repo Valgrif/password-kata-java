@@ -1,4 +1,4 @@
-package org.example;
+package org.example.kata.password;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
